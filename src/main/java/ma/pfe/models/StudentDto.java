@@ -1,4 +1,4 @@
-package ma.pfe.dtos;
+package ma.pfe.models;
 
 public class StudentDto {
     private long id;

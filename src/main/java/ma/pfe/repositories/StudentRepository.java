@@ -1,12 +1,13 @@
 package ma.pfe.repositories;
 
 import ma.pfe.entities.StudentEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
 
 import java.util.List;
+@Repository("repo1")
+public interface StudentRepository
+  extends JpaRepository<StudentEntity,Long> {
 
-public interface StudentRepository {
-    Long save(StudentEntity e);
-    Boolean update(StudentEntity e);
-    Boolean deleteById(long id);
-    List<StudentEntity> selectAll();
 }

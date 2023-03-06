@@ -1,11 +1,10 @@
 package ma.pfe.controllers;
 
-import ma.pfe.dtos.StudentDto;
-import ma.pfe.repositories.StudentRepositoryImpl;
+import ma.pfe.models.StudentDto;
 import ma.pfe.services.StudentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,21 +13,24 @@ import java.util.List;
 @RequestMapping("/students")
 public class StudentController {
     private final static Logger LOOGER = LoggerFactory.getLogger(StudentController.class);
-    @Autowired
+
     private StudentService service;
-    @PostMapping
+    public StudentController(@Qualifier("service1") StudentService service) {
+        this.service = service;
+    }
+    @PostMapping("/add")
     public Long save(@RequestBody StudentDto dto){
-        LOOGER.debug("start method save");
+        LOOGER.debug("start method save dto : {} ",dto);
         return service.save(dto);
     }
-    @PutMapping
-    public Boolean update(@RequestBody StudentDto dto){
-        LOOGER.debug("start method update");
+    @PutMapping("/update")
+    public Long update(@RequestBody StudentDto dto){
+        LOOGER.debug("start method update dto : {} ",dto);
         return service.update(dto);
     }
     @DeleteMapping("/{id}")
     public Boolean delete(@PathVariable("id") long id){
-        LOOGER.debug("start method delete");
+        LOOGER.debug("start method delete id : {} ",id);
         return service.deleteById(id);
     }
     @GetMapping

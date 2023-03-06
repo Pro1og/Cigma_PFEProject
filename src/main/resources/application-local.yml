@@ -6,8 +6,12 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/test
     username: root
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      ddl-auto: create
 
 logging:
   level:
-    org.springframework: DEBUG
-    ma.pfe : DEBUG
+    ma.geo.local: INFO

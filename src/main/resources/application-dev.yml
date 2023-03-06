@@ -1,8 +1,22 @@
 server:
-  port: 8082
+  port: 8083
 
 spring:
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/test
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/pfe
     username: root
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      properties.hibernate.dialect: org.hibernate.dialect.MySQL8Dialect
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+    logging:
+      level:
+        org.springframework.web: DEBUG
+        ma.geo.local: DEBUG
+        org.hibernate: ERROR
