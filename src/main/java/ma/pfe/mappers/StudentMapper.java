@@ -12,14 +12,14 @@ import java.util.stream.Collectors;
 public class StudentMapper {
     public StudentEntity convertToEntity(StudentDto dto){
         StudentEntity entity = new StudentEntity();
-        entity.setId(dto.getId());
+        //entity.setId(dto.getId());
         entity.setName(dto.getName());
         return entity;
     }
     public StudentDto convertToDto(StudentEntity entity){
         StudentDto dto = new StudentDto();
+        //dto.setId(entity.getId());
         dto.setName(entity.getName());
-        dto.setId(entity.getId());
         return dto;
     }
     public List<StudentEntity> convertToEntities(List<StudentDto> dtos){
