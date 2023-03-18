@@ -1,5 +1,5 @@
 # Directories #
-
+/logs/*
 /build/
 /bin/
 /target/
